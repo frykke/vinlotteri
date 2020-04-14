@@ -1,0 +1,40 @@
+div {
+  border: 2px solid darkgoldenrod;
+  // background-color: #343c27;
+  background: rgb(52,60,39);
+  background: linear-gradient(45deg, rgba(52,60,39,1) 56%, rgba(123,143,90,1) 100%);
+  font-size: 2.2em;
+  font-family: "Aldrich",'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 8px;
+  width: 109px;
+  height: 109px;
+  margin: 12px;
+  box-shadow: -1px 1px 8px 4px #666666;
+  .content {
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+.dot {
+  height: 18px;
+  width: 18px;
+  background-color: rgb(97, 72, 7);
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  box-shadow: inset  2px -2px 4px rgb(243, 224, 114);
+}
+.nodot {
+  background-color: transparent;
+  box-shadow: none;
+}
+.roller {
+  -webkit-animation:spin 2s ease-in-out infinite;
+    -moz-animation:spin 2s ease-in-out infinite;
+    animation:spin 2s ease-in-out infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

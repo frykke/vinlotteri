@@ -1,0 +1,14 @@
+<div *ngFor="let item of roundList" class="flex-container">
+  <app-round-list-item  (remove)="remove($event)" (edit)="edit()" [spelare]="item"
+  [isNext]="item === next"
+  [hasLostLife] = "item === spelareLostLife"
+  [hasGainedLife] = "item === spelareGainedLife"
+  [editMode]="editing"
+  ></app-round-list-item>
+</div>
+<div>
+<button *ngIf="editing" (click)="save()">Spara</button>
+<button *ngIf="editing" (click)="add()">Lägg till</button>
+<button (click)="reset()">Starta om</button>
+</div>
+

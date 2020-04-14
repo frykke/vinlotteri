@@ -1,0 +1,14 @@
+<div [ngClass]="{out: !spelare.liv, spelare: true, next: isNext}" (click)="onEdit()">
+  <span class="placering" *ngIf="spelare.liv===0">{{spelare.placering}}:</span>
+  <span *ngIf="!editMode" [ngClass]="{out: !spelare.liv, next:isNext}">
+    {{spelare.namn}}
+  </span>
+  <input *ngIf="editMode" type="text" [(ngModel)]="spelare.namn" />
+  <span *ngIf="hasLostLife" class="plump">Plump</span>
+  <span *ngIf="hasGainedLife" class="boost">Boost</span>
+  <span class="life" *ngIf="spelare.liv===2"><i class="fas fa-user"></i><i class="fas fa-user"></i></span>
+  <span class="life" *ngIf="spelare.liv===1"><i class="fas fa-user"></i></span>
+  <span class="death" *ngIf="spelare.liv===1"><i class="fas fa-user-slash"></i></span>
+  <span class="death" *ngIf="spelare.liv===0"><i class="fas fa-user-slash"></i><i class="fas fa-user-slash"></i></span>
+  <span *ngIf="editMode" (click)="onRemove()"><i class="fas fa-trash-alt" ></i></span>
+</div>

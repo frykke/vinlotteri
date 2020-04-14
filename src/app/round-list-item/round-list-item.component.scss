@@ -1,0 +1,78 @@
+
+div.spelare {
+  font-family: "Aldrich", Arial, Helvetica, sans-serif;
+  margin: 3px;
+  padding-top: 12px;
+  padding-left: 12px;
+  width: 250px;
+  height: 30px;
+  transition: width 1s, height 1s;
+  border: 1px solid #889;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 2px 5px 0px rgba(133, 131, 133, 1);
+  -moz-box-shadow: 3px 2px 5px 0px rgba(133, 131, 133, 1);
+  box-shadow: 3px 2px 5px 0px rgba(133, 131, 133, 1);
+  background-color: rgb(241, 242, 235);
+  &.out {
+    border-left: 2px solid red;
+    color: darken($color: #707080, $amount: 50%);
+    background-color: rgba(241, 242, 235, 0.5);
+  }
+  &.next {
+    width: 270px;
+    height: 33px;
+    background: linear-gradient(98deg, #ddd3d3 56%, #fdf8ee 100%);
+  }
+  span {
+    margin: 3px;
+    &.out {
+      text-decoration: line-through;
+    }
+    &.next {
+      font-weight: bolder;
+      color: darken($color: #707080, $amount: 50%);
+      &:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f35a";
+        color: darkolivegreen;
+      }
+    }
+    &.plump {
+      animation: pulse 2s 2;
+      color: transparent;
+    }
+    &.boost {
+      animation: pulse2 2s 2;
+      color: transparent;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        color: transparent;
+      }
+      50% {
+        color: #833;
+      }
+    }
+    @keyframes pulse2 {
+      0%, 100% {
+        color: transparent;
+      }
+      50% {
+        color: green;
+      }
+    }
+  }
+  .life,
+  .death {
+    margin: 5px;
+    float: right;
+  }
+  .placering {
+    color: #833;
+    font-weight: bold;
+  }
+  .death {
+    color: #833;
+  }
+}

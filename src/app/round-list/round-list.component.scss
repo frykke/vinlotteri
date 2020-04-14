@@ -1,0 +1,27 @@
+button {
+  margin: 5px;
+  border-radius: 9px;
+  font-size: 1em;
+  font-family: "Aldrich", Arial, sans-serif;
+  background-color: rgba(221, 211, 211, 0.9);
+  background: linear-gradient(45deg, rgba(221, 211, 211,1) 56%, rgba(123,143,90,1) 100%);
+
+  &.active {
+    text-shadow: 3px 3px 5px rgb(248, 241, 41);
+    background-color: rgba(240,240,240,0.6);
+  }
+  &:not([disabled]) {
+    &:hover {
+      text-shadow: 2px 6px 6px rgb(97, 83, 83);
+      color: #336333;
+    }
+  }
+}
+flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-between;
+}
+

@@ -25,6 +25,7 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
+              "src/16509_1460655272.mp3",
               "src/assets"
             ],
             "styles": [

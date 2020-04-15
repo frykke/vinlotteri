@@ -13,7 +13,7 @@ export class DieComponent implements OnInit, OnChanges {
   @Input() rolling: boolean;
   private audio = new Audio();
   ngOnInit() {
-    this.audio.src = '../../../16509_1460655272.mp3';
+    this.audio.src = './16509_1460655272.mp3';
     this.audio.load();
   }
   ngOnChanges(changes: SimpleChanges): void {

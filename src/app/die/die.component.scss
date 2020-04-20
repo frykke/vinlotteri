@@ -40,7 +40,11 @@ div {
     animation-duration: 2s;
     animation-iteration-count: 2;
     animation-timing-function: ease-in-out;
+
 }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(720deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(720deg); } }
-@keyframes spin { 100% { transform:rotate(720deg); } }
+.short-animation {
+  animation-delay: 0s;
+}
+@-moz-keyframes spin { 100% { -moz-transform: skewX(45deg) rotate(720deg);  } }
+@-webkit-keyframes spin { 100% { -webkit-transform: skewX(45deg) rotate(720deg) ; } }
+@keyframes spin { 100% { transform:skewX(45deg) rotate(720deg); } }

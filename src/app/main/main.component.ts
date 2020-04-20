@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
   public rolling = false;
   public next = this.myList[0];
   public stake: 'higher' | 'lower' | 'same' | '' = '';
+  public muted = false;
   ngOnInit() {
     this.gameService.newGame();
     this.gameService.getGame().subscribe((game) => this.game = game);
@@ -29,7 +30,7 @@ export class MainComponent implements OnInit {
       this.rolling = false;
       this.stake = '';
       this.gameService.roll(stake);
-      }, 4000);
+      }, this.muted ? 2000 : 4000);
   }
   onClickLower() {
     this.roll('lower');
@@ -49,5 +50,8 @@ export class MainComponent implements OnInit {
   }
   resetGame() {
     this.gameService.resetGame();
+  }
+  onClickSpeaker() {
+    this.muted = !this.muted;
   }
 }

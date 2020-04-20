@@ -1,14 +1,38 @@
 <div class="container flex-container">
-
   <div>
     <div class="flex-container">
-      <app-die [rolling]="rolling" [value]="game.dice.dice1"></app-die>
-      <app-die [rolling]="rolling" [value]="game.dice.dice2"></app-die>
+      <app-dice [dice]="game.dice" [rolling]="rolling" [audioOn]="!muted"></app-dice>
     </div>
     <div class="flex-container">
-      <button [ngClass]="{active:rolling && stake==='lower' }" [disabled]="rolling || !game.next || game.next.liv === 0 || game.dice.tot === 2" (click)="onClickLower()">Lägre</button>
-      <button [ngClass]="{active:rolling && stake==='same' }" [disabled]="rolling || !game.next || game.next.liv === 0" (click)="onClickSame()">Lika</button>
-      <button [ngClass]="{active:rolling && stake==='higher' }" [disabled]="rolling || !game.next || game.next.liv === 0 || game.dice.tot === 12" (click)="onClickHigher()">Högre</button>
+      <button
+        [ngClass]="{ active: rolling && stake === 'lower' }"
+        [disabled]="rolling || !game.next || game.next.liv === 0 || game.dice.tot === 2"
+        (click)="onClickLower()"
+      >
+        Lägre
+      </button>
+      <button
+        [ngClass]="{ active: rolling && stake === 'same' }"
+        [disabled]="rolling || !game.next || game.next.liv === 0"
+        (click)="onClickSame()"
+      >
+        Lika
+      </button>
+      <button
+        [ngClass]="{ active: rolling && stake === 'higher' }"
+        [disabled]="rolling || !game.next || game.next.liv === 0 || game.dice.tot === 12"
+        (click)="onClickHigher()"
+      >
+        Högre
+      </button>
+    </div>
+    <div class="flex-container">
+      <button *ngIf="muted" (click)="onClickSpeaker()">
+        <i class="fas fa-volume-mute"></i>
+      </button>
+      <button *ngIf="!muted" (click)="onClickSpeaker()">
+        <i class="fas fa-volume-up"></i>
+      </button>
     </div>
   </div>
   <div>

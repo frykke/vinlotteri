@@ -7,6 +7,7 @@ import { RoundListComponent } from './round-list/round-list.component';
 import { DieComponent } from './die/die.component';
 import { RoundListItemComponent } from './round-list-item/round-list-item.component';
 import { DiceComponent } from './dice/dice.component';
+import { Die3dComponent } from './die3d/die3d.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DiceComponent } from './dice/dice.component';
     RoundListComponent,
     DieComponent,
     RoundListItemComponent,
-    DiceComponent
+    DiceComponent,
+    Die3dComponent
   ],
   imports: [
     BrowserModule,

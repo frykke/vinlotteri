@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
       this.rolling = false;
       this.stake = '';
       this.gameService.roll(stake);
-      }, this.muted ? 2000 : 4000);
+      }, this.muted ? 1000 : 2000);
   }
   onClickLower() {
     this.roll('lower');

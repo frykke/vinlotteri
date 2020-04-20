@@ -124,6 +124,7 @@ export class GameService {
       this.roundListService.toggleDir();
     }
     this.updateAfterValidate();
+
   }
   private validateLower() {
     this.validate(this.lower);
@@ -135,8 +136,10 @@ export class GameService {
     this.validate(this.same, true);
   }
   private updateAfterValidate() {
+    setTimeout(() => {
     const game = this.game;
     game.next = this.roundListService.next();
     game.gameList = this.roundListService.orderList().map((_) => _.spelare);
+    }, 4000);
   }
 }

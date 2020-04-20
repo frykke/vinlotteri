@@ -1,0 +1,90 @@
+<div class="scene">
+  <div class="cube" [ngClass]="{
+    'show-front': value == 1,
+    'show-back': value == 6,
+    'show-right': value == 5,
+    'show-left': value == 2,
+    'show-top': value == 3,
+    'show-bottom': value == 4,
+     rolling: rolling
+  }">
+    <div class="cube__face cube__face--front">
+      <span class="content">
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+      </span>
+    </div>
+    <div class="cube__face cube__face--back">
+      <span class="content">
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+      </span>
+    </div>
+    <div class="cube__face cube__face--right">
+      <span class="content"
+        ><span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span
+      ></span>
+    </div>
+    <div class="cube__face cube__face--left">
+      <span class="content"
+        ><span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span
+      ></span>
+    </div>
+    <div class="cube__face cube__face--top">
+      <span class="content">
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span
+      ></span>
+    </div>
+    <div class="cube__face cube__face--bottom">
+      <span class="content">
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span>
+        <span class="dot" [ngClass]="{ nodot: true }"></span>
+        <span class="dot" [ngClass]="{ nodot: false }"></span
+      ></span>
+    </div>
+  </div>
+</div>

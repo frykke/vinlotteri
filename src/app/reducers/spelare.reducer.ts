@@ -14,7 +14,8 @@ export const adapter: EntityAdapter<Spelare> = createEntityAdapter<Spelare>();
 export const initialState = adapter.getInitialState({
   next: null,
   lostLife: null,
-  gainedLife: null
+  gainedLife: null,
+  spelare: createEntityAdapter<Spelare>()
 });
 
 
@@ -73,3 +74,7 @@ export const spelareReducer = createReducer(
 export function reducer(state: SpelareState | undefined, action: Action) {
   return spelareReducer(state, action);
 }
+
+export const getNext = (s: SpelareState) => s.next;
+export const getGainedSpelare = (s: SpelareState) => s.gainedLife;
+export const getLosingSpelare = (s: SpelareState) => s.lostLife;

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Spelare } from '../models/spelare';
 import { GameService } from '../services/game.service';
 import { Game } from '../models/game';
+import { Store } from '@ngrx/store';
+import { SpelareState, selectAllSpelares, selectSpelareTotal } from '../reducers/spelare.reducer';
+import { Observable } from 'rxjs';
+import { addPlayer, removePlayer } from '../actions/spelare.actions';
 
 @Component({
   selector: 'app-main',
@@ -9,10 +13,17 @@ import { Game } from '../models/game';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  spelare: Observable<Spelare[]>;
+  antalSpelare: number;
   constructor(
-    private gameService: GameService) { }
-    public game: Game;
+    private gameService: GameService,
+    private store: Store<SpelareState>
+  ) {
+      this.spelare = store.select(selectAllSpelares);
+      store.select(selectSpelareTotal).subscribe((antal) => this.antalSpelare = antal);
+  }
+
+  public game: Game;
   public myList: Spelare[] = [];
   public dice = null;
   public rolling = false;
@@ -43,9 +54,12 @@ export class MainComponent implements OnInit {
     this.roll('same');
   }
   adderaSpelare() {
+    const nySpelare: Spelare = { id: this.antalSpelare + 1, namn: 'Spelare ' + (this.antalSpelare + 1), liv: 2 };
+    this.store.dispatch(addPlayer({spelare: nySpelare}));
     this.gameService.adderaSpelare();
   }
   tabortSpelare(spelare: Spelare) {
+    this.store.dispatch(removePlayer({spelareId: spelare.id}));
     this.gameService.tabortSpelare(spelare);
   }
   resetGame() {

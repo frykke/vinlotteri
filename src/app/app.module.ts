@@ -8,6 +8,8 @@ import { DieComponent } from './die/die.component';
 import { RoundListItemComponent } from './round-list-item/round-list-item.component';
 import { DiceComponent } from './dice/dice.component';
 import { Die3dComponent } from './die3d/die3d.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/spelare.reducer';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { Die3dComponent } from './die3d/die3d.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(reducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

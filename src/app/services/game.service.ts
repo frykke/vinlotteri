@@ -107,17 +107,19 @@ export class GameService {
     this.lostLife$.next(null);
     this.gainedLife$.next(null);
     if (!comp(game.dice.tot, game.lastRoll.tot)) {
-      spelare.spelare.liv--;
-      this.lostLife$.next(spelare.spelare);
-      if (spelare.spelare.liv === 0) {
-        spelare.spelare.placering = game.gameList.filter((_) => _.liv !== 0).length + 1;
-      }
+      setTimeout(() => {
+        spelare.spelare.liv--;
+        this.lostLife$.next(spelare.spelare);
+        if (spelare.spelare.liv === 0) {
+          spelare.spelare.placering = game.gameList.filter((_) => _.liv !== 0).length + 1;
+        }}, 3000);
     } else {
       if (matchPlus) {
-        if (spelare.spelare.liv === 1) {
+        setTimeout(() => {
+          if (spelare.spelare.liv === 1) {
           spelare.spelare.liv++;
           this.gainedLife$.next(spelare.spelare);
-        }
+        }}, 3000);
       }
     }
     if (game.dice.tot === game.lastRoll.tot) {

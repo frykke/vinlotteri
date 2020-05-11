@@ -14,7 +14,7 @@ import { addPlayer, removePlayer } from '../actions/spelare.actions';
 })
 export class MainComponent implements OnInit {
   spelare: Observable<Spelare[]>;
-  antalSpelare: number;
+  antalSpelare = 0;
   constructor(
     private gameService: GameService,
     private store: Store<SpelareState>

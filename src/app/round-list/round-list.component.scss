@@ -17,6 +17,21 @@ button {
     }
   }
 }
+.direction-changed {
+  animation-name: moveRight;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-iteration-count: 2;
+  color: transparent;
+}
+@keyframes moveRight {
+  0%, 100% {
+    color: transparent;
+  }
+  50% {
+    color: lightgreen;
+  }
+}
 flex-container {
   display: flex;
   justify-content: center;

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RoundListService } from '../services/round-list.service';
 import { Spelare } from '../models/spelare';
+import { Direction } from '../models/game';
 
 @Component({
   selector: 'app-round-list',
@@ -12,9 +13,11 @@ export class RoundListComponent implements OnInit {
   @Input() next: Spelare;
   @Input() spelareLostLife: Spelare;
   @Input() spelareGainedLife: Spelare;
+  @Input() direction: Direction;
   @Output() adderaSpelare = new EventEmitter();
   @Output() tabortSpelare = new EventEmitter<Spelare>();
   @Output() resetGame = new EventEmitter();
+  public Direction = Direction;
   public removed: Spelare;
   public orderList: Spelare[];
   public editing = false;

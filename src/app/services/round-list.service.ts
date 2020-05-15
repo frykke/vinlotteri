@@ -29,8 +29,9 @@ export class RoundListService {
     }
     return null;
   }
-  toggleDir() {
+  toggleDir(): boolean {
     this.forward = !this.forward;
+    return this.forward;
   }
   pull(): Spelare {
     const removed = this.list[this.ptr];
@@ -45,6 +46,7 @@ export class RoundListService {
   feed(valueList: Spelare[]): { ix: number, spelare: Spelare }[] {
     this.list = valueList.map ((_, ix) => ({ ix, spelare: _}));
     this.ptr = 0;
+    this.forward = true;
     this.listLength = valueList.length;
     return this.list;
   }

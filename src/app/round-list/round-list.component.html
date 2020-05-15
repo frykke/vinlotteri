@@ -1,9 +1,11 @@
-<div *ngFor="let item of roundList" class="flex-container">
-  <app-round-list-item  (remove)="remove($event)" (edit)="edit()" [spelare]="item"
+<div *ngFor="let item of roundList;let i = index" class="flex-container">
+  <app-round-list-item (remove)="remove($event)" (edit)="edit()" [spelare]="item"
   [isNext]="item === next"
   [hasLostLife] = "item === spelareLostLife"
   [hasGainedLife] = "item === spelareGainedLife"
   [editMode]="editing"
+  [order]="direction==Direction.Backward ? roundList.length - i :  i"
+  [direction]="direction"
   ></app-round-list-item>
 </div>
 <div>

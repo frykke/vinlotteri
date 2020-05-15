@@ -1,7 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Spelare } from '../models/spelare';
 import { DiceService } from './dice.service';
-import { Game } from '../models/game';
+import { Game, Direction } from '../models/game';
 import { RoundListService } from './round-list.service';
 import { Subject, Observable, of } from 'rxjs';
 import { WebSocketSubject } from 'rxjs/observable/dom/WebSocketSubject';
@@ -24,6 +24,9 @@ export class GameService {
     this.lostLife$.subscribe((spelare: Spelare) => {
       this.game.lostLife = spelare;
     });
+    this.direction$.subscribe((direction: boolean) => {
+      this.game.direction = direction ? Direction.Forward : Direction.Backward;
+    });
     this.socket$ = new WebSocketSubject('ws://localhost:8999');
 
     this.socket$
@@ -36,6 +39,7 @@ export class GameService {
 
   public lostLife$ = new Subject<Spelare>();
   public gainedLife$ = new Subject<Spelare>();
+  public direction$ = new Subject<boolean>();
   private socket$: WebSocketSubject<Message>;
 
 
@@ -123,7 +127,8 @@ export class GameService {
       }
     }
     if (game.dice.tot === game.lastRoll.tot) {
-      this.roundListService.toggleDir();
+      const direction = this.roundListService.toggleDir();
+      this.direction$.next(direction);
     }
     this.updateAfterValidate();
 

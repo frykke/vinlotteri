@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Spelare } from '../models/spelare';
+import { Direction } from '../models/game';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class RoundListItemComponent implements OnInit {
   @Input() isNext: boolean;
   @Input() hasLostLife: boolean;
   @Input() hasGainedLife: boolean;
+  @Input() direction: Direction;
   @Input() editMode: boolean;
+  @Input() order: number;
   @Output() remove = new EventEmitter<Spelare>();
   @Output() edit = new EventEmitter<Spelare>();
 

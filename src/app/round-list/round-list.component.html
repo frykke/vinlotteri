@@ -8,9 +8,9 @@
   [direction]="direction"
   ></app-round-list-item>
 </div>
-<div>
-<button *ngIf="editing" (click)="save()">Spara</button>
-<button *ngIf="editing" (click)="add()">Lägg till</button>
-<button (click)="reset()">Starta om</button>
+<div class="flex-container">
+<app-button [size]="'small'" *ngIf="editing" (action)="save()">Spara</app-button>
+<app-button [size]="'small'" *ngIf="editing" (action)="add()">Lägg till</app-button>
+<app-button [size]="'small'" (action)="reset()">Starta om</app-button>
 </div>
 

@@ -1,0 +1,7 @@
+<button
+  [ngClass]="{ active: active, small: size=='small' }"
+  [disabled]="disabled"
+  (click)="onClickButton()"
+>
+<ng-content></ng-content>
+</button>

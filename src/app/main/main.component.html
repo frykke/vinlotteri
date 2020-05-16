@@ -4,35 +4,26 @@
       <app-dice [dice]="game.dice" [rolling]="rolling" [audioOn]="!muted"></app-dice>
     </div>
     <div class="flex-container">
-      <button
-        [ngClass]="{ active: rolling && stake === 'lower' }"
+      <app-button
+        [active]="rolling && stake === 'lower'"
         [disabled]="rolling || !game.next || game.next.liv === 0 || game.dice.tot === 2"
-        (click)="onClickLower()"
-      >
-        Lägre
-      </button>
-      <button
-        [ngClass]="{ active: rolling && stake === 'same' }"
+        (action)="onClickLower()">Lägre</app-button>
+      <app-button
+        [active]="rolling && stake === 'same'"
         [disabled]="rolling || !game.next || game.next.liv === 0"
-        (click)="onClickSame()"
-      >
-        Lika
-      </button>
-      <button
-        [ngClass]="{ active: rolling && stake === 'higher' }"
+        (action)="onClickSame()">Lika</app-button>
+      <app-button
+        [active]="rolling && stake === 'higher'"
         [disabled]="rolling || !game.next || game.next.liv === 0 || game.dice.tot === 12"
-        (click)="onClickHigher()"
-      >
-        Högre
-      </button>
+        (action)="onClickHigher()">Högre</app-button>
     </div>
     <div class="flex-container">
-      <button *ngIf="muted" (click)="onClickSpeaker()">
+      <app-button *ngIf="muted" (action)="onClickSpeaker()">
         <i class="fas fa-volume-mute"></i>
-      </button>
-      <button *ngIf="!muted" (click)="onClickSpeaker()">
+      </app-button>
+      <app-button *ngIf="!muted" (action)="onClickSpeaker()">
         <i class="fas fa-volume-up"></i>
-      </button>
+      </app-button>
     </div>
   </div>
   <div>

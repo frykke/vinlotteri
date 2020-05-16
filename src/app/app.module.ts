@@ -10,6 +10,7 @@ import { DiceComponent } from './dice/dice.component';
 import { Die3dComponent } from './die3d/die3d.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/spelare.reducer';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { reducer } from './reducers/spelare.reducer';
     DieComponent,
     RoundListItemComponent,
     DiceComponent,
-    Die3dComponent
+    Die3dComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
